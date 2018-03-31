@@ -34,11 +34,11 @@ function head() {
     echo '
     <head>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet"> 
-        <link rel="stylesheet" href="style/style.css">
+        <link rel="stylesheet" href="http://engineteach.com/style/style.css">
         <meta charset="utf-8">
         <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
-        <script type="text/javascript" src="js/js.js"></script>
+        <script type="text/javascript" src="http://engineteach.com/js/js.js"></script>
         <title>Главная</title>
     </head>
     ';
@@ -72,5 +72,21 @@ function MessageToUserShow () {
     if ($_SESSION["MESSAGE_TO_USER"]) $Message = $_SESSION["MESSAGE_TO_USER"];
     echo $Message;
     $_SESSION["MESSAGE_TO_USER"] = array ();
+}
+function ShowStates($p1) {
+    $Row = mysqli_query ($p1, "SELECT * FROM `states` ORDER BY `create_date` DESC");
+    while ($NewRow = mysqli_fetch_assoc($Row)) {
+        echo '
+        <div class="content_state"><a href="state/'.$NewRow["id"].'"><h1>'.$NewRow["title"].'</h1></a><p>'.$NewRow["primary_text"].'</p><span>'.$NewRow["create_date"].'</span></div>
+        ';
+    }
+}
+function ShowState($p1,$p2) {
+    $id = $p2;
+    $Row = mysqli_fetch_assoc(mysqli_query($p1, "SELECT * FROM `states` WHERE `id` = '$id'"));
+    if (!$Row) exit('<h1>Статья не найдена!</h1>');
+    echo '
+    <div class="content_wrapper"><h1>'.$Row["title"].'</h1><p>'.$Row["text"].'</p><span>'.$Row["create_date"].'</span><p>Tags: '.$Row["tags"].'</p></div>
+    ';
 }
 ?>

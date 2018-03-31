@@ -1,9 +1,10 @@
 <?php
 include_once 'settings.php';
+
 include_once 'functions.php';
 session_start();
-
 $CONNECT = mysqli_connect(HOST_DB, USER_DB, PASSWORD_DB, NAME_DB);
+
 
 if ($_SESSION["USER_LOG_IN"] and $_COOKIE['c_user_remember']) {
     $Row = mysqli_fetch_assoc(mysqli_query($CONNECT, "SELECT * FROM `users` WHERE `password` = '$_COOKIE[c_user_remember]'"));
@@ -40,10 +41,13 @@ $Param[$URL_Parts[$i]] = $URL_Parts[++$i];
 //Подключение файлов в зависимости от URL
 
 if ($Page == 'engine') include '../pages/index.php';
-else if ($Page == 'register') include '../pages/register.php'; 
+else if ($Page == 'register') include '../pages/register.php';
+else if ($Page == 'publisher') include '../forms/publisher.php';
+else if ($Page == 'createstate') include '../pages/createstate.php'; 
 else if ($Page == 'account') include '../forms/account.php';
 else if ($Page == 'authorization') include '../pages/authorization.php';
 else if ($Page == 'profile') include '../pages/profile.php';
+else if ($Page == 'state') include '../pages/state.php';
 else echo '<h1>404 Page not found...</h1>';
 
 

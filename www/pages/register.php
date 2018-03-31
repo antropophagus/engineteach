@@ -13,7 +13,6 @@
             <p><label for="nickname">Имя: </label><input name="nickname" type="text" required></p>
             <p><input name="submit" type="submit"></p>
         </form>
-        </form>
         </div>
         <?php footer(); ?>
     </body>

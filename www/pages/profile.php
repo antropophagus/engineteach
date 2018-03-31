@@ -11,8 +11,6 @@
             Nickname: <?php echo $_SESSION["USER_NICKNAME"] ?> <br>
             Дата регистрации: <?php echo $_SESSION["USER_REGDATE"] ?> <br>
             <a href="account/logout">Выйти</a>
-        </form>
-        </form>
         </div>
         <?php footer(); ?>
     </body>

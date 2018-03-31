@@ -4,8 +4,9 @@
         <?php headerr(); ?>
         <?php MessageToUserShow(); ?>
         <div id="wrapper">
-            <? ShowStates($CONNECT); ?>
-            
+            <? 
+            ShowState($CONNECT, $Module);
+            ?>
         </div>
         <?php footer(); ?>
     </body>

@@ -4,6 +4,9 @@
     color: grey;
     font-family: 'Roboto', 'Times New Roman';
 }
+a {
+    text-decoration: none;
+}
 body {
     background-color: #171717;
 }
@@ -94,7 +97,33 @@ ul {
 .messagetouser_success h2, .messagetouser_warning h2, .messagetouser_error h2 {
     width: 10%;
     float: left;
+    color: black;
 }
 .messagetouser_success p, .messagetouser_warning p, .messagetouser_error p {
-   clear: both;
+    clear: both;
+    color: black;
+}
+.content_state {
+    float: left;
+    width: 98%;
+    margin: 25px 0;
+    padding: 1%;
+    background-color: #2c2c2c; 
+}
+.content_state h1 {
+    margin-bottom: 10px;
+}
+span {
+    font-size: 0.8em;
+    opacity: 0.6;
+}
+.content_state p {
+    margin-bottom: 15px;
+}
+.content_wrapper h1, p, span {
+    margin-bottom: 15px;
+}
+.content_wrapper span {
+    font-size: 0.8em;
+    opacity: 0.6;
 }

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Мар 31 2018 г., 23:40
+-- Время создания: Апр 01 2018 г., 02:21
 -- Версия сервера: 5.5.25
 -- Версия PHP: 5.3.13
 
@@ -19,6 +19,30 @@ SET time_zone = "+00:00";
 --
 -- База данных: `teachengine`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `states`
+--
+
+CREATE TABLE IF NOT EXISTS `states` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `tags` varchar(255) NOT NULL,
+  `primary_text` varchar(255) NOT NULL,
+  `text` text NOT NULL,
+  `create_date` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Дамп данных таблицы `states`
+--
+
+INSERT INTO `states` (`id`, `title`, `tags`, `primary_text`, `text`, `create_date`) VALUES
+(1, 'dfbfb', 'dfbfbdfb', 'dfbfbfdbdbdfb', 'dfbfdbdfnfdfddfbdfdnfdb', '2018-03-31 23:34:35'),
+(2, 'regerg', 'ergrgerg', 'ergrgreg', 'ergergergregergergergegrg', '2018-04-01 00:15:21');
 
 -- --------------------------------------------------------
 
