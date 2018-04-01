@@ -20,8 +20,8 @@ $array = SortLogic($Module, $Param);
             <ul class="cat_list">
             <li><a href="/cat/<? echo $Module; ?>/sort/date_desc">Сначало новые</a></li>
             <li><a href="/cat/<? echo $Module; ?>/sort/date_asc">Сначало старые</a></li>
-            <li><a href="/cat/<? echo $Module; ?>/sort/title_desc">А-Я</a></li>
-            <li><a href="/cat/<? echo $Module; ?>/sort/title_asc">Я-А</a></li>
+            <li><a href="/cat/<? echo $Module; ?>/sort/title_asc">А-Я</a></li>
+            <li><a href="/cat/<? echo $Module; ?>/sort/title_desc">Я-А</a></li>
             </ul>
             </div>
             
