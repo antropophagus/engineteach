@@ -58,15 +58,14 @@ function root($p1) {
     if ($_SESSION["USER_LOG_IN"] != $p1) {header("Location: /");}
 }
 // Сообщение пользователю: 1 - Оповещение, 2 - Успешность действия, 3 - Ошибка
-function MessageToUser($p1, $p2) {
+function MessageToUser($p1, $p2, $p4) {
     if($p1 == 1) {$p1 = 'Внимание!';$p3 = 'warning';}
     else if($p1 == 2) {$p1 = 'Успешно!';$p3 = 'success';}
     else if($p1 == 3) {$p1 = 'Ошибка!';$p3 = 'error';}
+    
     $_SESSION["MESSAGE_TO_USER"] = '<div class="messagetouser_'.$p3.'"><p title="Закрыть сообщение"><a class="close_message" href="javascript://0"><i class="fas fa-times"></i></a></p><h2>'.$p1.'</h2><p>'.$p2.'</p></div>';
-}
-function ErrorToUser ($p2) {
-    $_SESSION["MESSAGE_TO_USER"] = '<div class="messagetouser_error"><p title="Закрыть сообщение"><a class="close_message" href="javascript://0"><i class="fas fa-times"></i></a></p><h2>Ошибка!</h2><p>'.$p2.'</p></div>';
-    exit(header('Location: '.$_SERVER['HTTP_REFERER']));
+    if ($p4 == '') exit(header('Location: '.$_SERVER['HTTP_REFERER']));
+    else exit(header('Location: '.$p4.''));
 }
 function MessageToUserShow () {
     if ($_SESSION["MESSAGE_TO_USER"]) $Message = $_SESSION["MESSAGE_TO_USER"];
