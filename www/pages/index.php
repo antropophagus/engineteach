@@ -18,14 +18,12 @@ $array = SortLogic($Module, $Param);
             <div class="sort">
             <h2>Сортировать: </h2>
             <ul class="cat_list">
-            <li><a href="/cat/<? echo $Module; ?>/sort/date_desc">Сначало новые</a></li>
-            <li><a href="/cat/<? echo $Module; ?>/sort/date_asc">Сначало старые</a></li>
-            <li><a href="/cat/<? echo $Module; ?>/sort/title_asc">А-Я</a></li>
-            <li><a href="/cat/<? echo $Module; ?>/sort/title_desc">Я-А</a></li>
+            <li><a href="/cat/<? echo $array[2]; ?>/sort/date_desc">Сначало новые</a></li>
+            <li><a href="/cat/<? echo $array[2]; ?>/sort/date_asc">Сначало старые</a></li>
+            <li><a href="/cat/<? echo $array[2]; ?>/sort/title_asc">А-Я</a></li>
+            <li><a href="/cat/<? echo $array[2]; ?>/sort/title_desc">Я-А</a></li>
             </ul>
             </div>
-            
-            
             <?php 
                 echo $sort, $cat;
                 ShowStates($CONNECT, $array[0], $array[1]);

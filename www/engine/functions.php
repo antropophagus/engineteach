@@ -97,7 +97,7 @@ $array_cat = array(
 2 => "it",
 3 => "all",
 );
-if ($p1 == 'engine' or $p1 == 'all') $cat = '';
+if ($p1 == 'engine' or $p1 == 'all') {$cat = ''; $p1 = 'all';}
 else if (in_array($p1, $array_cat)) $cat = $p1;
 else MessageToUser(3, 'Ошибка категории!','/');
 if (!$p2["sort"]) {$sort = '`create_date` DESC';}
@@ -110,7 +110,7 @@ else {
         default: MessageToUser(3, 'Ошибка сортировки!','/'); break;
     }
 }
-    $array = array($cat, $sort);
+    $array = array($cat, $sort, $p1);
     return $array;
 }
 ?>
