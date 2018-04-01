@@ -4,7 +4,8 @@ if ($Module == 'createstate' and $_POST["submit"]) {
     $tags = FormChars($_POST["tags"]);
     $primary_text = FormChars($_POST["primary_text"]);
     $text = FormChars($_POST["text"]);
-    mysqli_query ($CONNECT, "INSERT INTO `states` VALUES ('','$title','$tags','$primary_text','$text', NOW())");
+    $cat = $_POST["cat"];
+    mysqli_query ($CONNECT, "INSERT INTO `states` VALUES ('','$title','$tags','$primary_text','$text','$cat', NOW())");
     MessageToUser(2, 'Статья успешно создана!', '/createstate');
 }
 

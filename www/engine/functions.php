@@ -72,11 +72,12 @@ function MessageToUserShow () {
     echo $Message;
     $_SESSION["MESSAGE_TO_USER"] = array ();
 }
-function ShowStates($p1) {
-    $Row = mysqli_query ($p1, "SELECT * FROM `states` ORDER BY `create_date` DESC");
+function ShowStates($p1, $p2, $p3) {
+    if ($p2 == '') $Row = mysqli_query ($p1, "SELECT * FROM `states` ORDER BY $p3");
+    else $Row = mysqli_query ($p1, "SELECT * FROM `states` WHERE `category` = '$p2' ORDER BY $p3");
     while ($NewRow = mysqli_fetch_assoc($Row)) {
         echo '
-        <div class="content_state"><a href="state/'.$NewRow["id"].'"><h1>'.$NewRow["title"].'</h1></a><p>'.$NewRow["primary_text"].'</p><span>'.$NewRow["create_date"].'</span></div>
+        <div class="content_state"><a href="/state/'.$NewRow["id"].'"><h1>'.$NewRow["title"].'</h1></a><p>'.$NewRow["primary_text"].'</p><span>'.$NewRow["create_date"].'</span></div>
         ';
     }
 }
@@ -87,5 +88,29 @@ function ShowState($p1,$p2) {
     echo '
     <div class="content_wrapper"><h1>'.$Row["title"].'</h1><p>'.$Row["text"].'</p><span>'.$Row["create_date"].'</span><p>Tags: '.$Row["tags"].'</p></div>
     ';
+}
+
+function SortLogic($p1, $p2) {
+$array_cat = array(
+0 => "news",
+1 => "computer",
+2 => "it",
+3 => "all",
+);
+if ($p1 == 'engine' or $p1 == 'all') $cat = '';
+else if (in_array($p1, $array_cat)) $cat = $p1;
+else MessageToUser(3, 'Ошибка категории!','/');
+if (!$p2["sort"]) {$sort = '`create_date` DESC';}
+else {
+    switch ($p2["sort"]) {
+        case 'date_desc': $sort = '`create_date` DESC'; break;
+        case 'date_asc': $sort = '`create_date` ASC'; break;    
+        case 'title_desc': $sort = '`title` DESC'; break;
+        case 'title_asc': $sort = '`title` ASC'; break; 
+        default: MessageToUser(3, 'Ошибка сортировки!','/'); break;
+    }
+}
+    $array = array($cat, $sort);
+    return $array;
 }
 ?>
