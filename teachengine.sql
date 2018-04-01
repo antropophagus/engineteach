@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Апр 01 2018 г., 02:21
+-- Время создания: Апр 01 2018 г., 17:18
 -- Версия сервера: 5.5.25
 -- Версия PHP: 5.3.13
 
@@ -32,17 +32,23 @@ CREATE TABLE IF NOT EXISTS `states` (
   `tags` varchar(255) NOT NULL,
   `primary_text` varchar(255) NOT NULL,
   `text` text NOT NULL,
+  `category` varchar(255) NOT NULL,
   `create_date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Дамп данных таблицы `states`
 --
 
-INSERT INTO `states` (`id`, `title`, `tags`, `primary_text`, `text`, `create_date`) VALUES
-(1, 'dfbfb', 'dfbfbdfb', 'dfbfbfdbdbdfb', 'dfbfdbdfnfdfddfbdfdnfdb', '2018-03-31 23:34:35'),
-(2, 'regerg', 'ergrgerg', 'ergrgreg', 'ergergergregergergergegrg', '2018-04-01 00:15:21');
+INSERT INTO `states` (`id`, `title`, `tags`, `primary_text`, `text`, `category`, `create_date`) VALUES
+(1, 'dfbfb', 'dfbfbdfb', 'dfbfbfdbdbdfb', 'dfbfdbdfnfdfddfbdfdnfdb', 'News', '2018-03-31 23:34:35'),
+(2, 'regerg', 'ergrgerg', 'ergrgreg', 'ergergergregergergergegrg', 'News', '2018-04-01 00:15:21'),
+(3, 'fwefwefwef', 'wefef', 'wefwefwefewgegwefwf', 'fwefwegewgewfwefwegwefewg', 'IT', '2018-04-04 00:00:00'),
+(4, 'wegwegweg', 'wegwegwegweg', 'wegewgwegweg', 'wegwegwegwegwegwegwegwegg', 'IT', '2018-04-03 00:00:00'),
+(5, 'ergrehreherh', 'erherhregergerh', 'erhergregrehe', 'wegieuWGHEHEWUIGHUIWGHEGHEUWIGHUWEGHWUGHEUWGWEGHWUHGWUGH', 'Computer', '0000-00-00 00:00:00'),
+(7, 'ergrehreherh', 'erherhregergerh', 'erhergregrehe', 'wegieuWGHEHEWUIGHUIWGHEGHEUWIGHUWEGHWUGHEUWGWEGHWUHGWUGH', 'Computer', '0000-00-00 00:00:00'),
+(9, 'Привет', 'проверка', 'бла бла бла', 'Статья об IT', 'IT', '2018-04-01 13:45:47');
 
 -- --------------------------------------------------------
 
