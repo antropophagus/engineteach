@@ -1,4 +1,4 @@
-<?php 
+<?php
 $array = SortLogic($Module, $Param);
 ?>
 <html>
@@ -14,6 +14,7 @@ $array = SortLogic($Module, $Param);
             <li><a href="/cat/computer">Компьютеры</a></li>
             <li><a href="/cat/it">IT</a></li>
             </ul>
+
             </div>
             <div class="sort">
             <h2>Сортировать: </h2>
@@ -24,12 +25,12 @@ $array = SortLogic($Module, $Param);
             <li><a href="/cat/<? echo $array[2]; ?>/sort/title_desc">Я-А</a></li>
             </ul>
             </div>
-            <?php 
-                echo $sort, $cat;
+            <?php
+                echo $_SESSION["USER_ROOT_RULES"];
                 ShowStates($CONNECT, $array[0], $array[1]);
              ?>
         </div>
-       
+
         <?php footer(); ?>
     </body>
 </html>

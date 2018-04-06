@@ -12,6 +12,7 @@
             <p><label for="sec_password">Повторите пароль: </label><input name="sec_password" type="password" required></p>
             <p><label for="nickname">Имя: </label><input name="nickname" type="text" required></p>
             <p><input name="submit" type="submit"></p>
+
         </form>
         </div>
         <?php footer(); ?>

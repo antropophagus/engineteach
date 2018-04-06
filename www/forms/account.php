@@ -21,11 +21,11 @@ if ($Row['login']) MessageToUser(3 ,'Данный логин уже исполь
 $Row = mysqli_fetch_assoc(mysqli_query($CONNECT, "SELECT `email` FROM `users` WHERE `email` = '$email'"));
 if ($Row['email']) MessageToUser(3 ,'Данный Email уже используется!', '');
 $Row = mysqli_fetch_assoc(mysqli_query($CONNECT, "SELECT `nickname` FROM `users` WHERE `nickname` = '$nickname'"));
-if ($Row['nickname']) MessageToUser(3,'Данный никнэйм уже используется!','');    
+if ($Row['nickname']) MessageToUser(3,'Данный никнэйм уже используется!','');
 if ($password != $sec_password) ErrorToUser('Введенные пароли не совпадают!');
     //Запись в БД
-mysqli_query ($CONNECT, "INSERT INTO `users` VALUES ('','$login','$email','$password','$nickname', NOW())");
-MessageToUser(2, 'Вы успешно зарегистрировались!', '/authorization');   
+mysqli_query ($CONNECT, "INSERT INTO `users` VALUES ('','$login','$email','$password','$nickname', NOW(), '1')");
+MessageToUser(2, 'Вы успешно зарегистрировались!', '/authorization');
 }
 
 
@@ -44,12 +44,13 @@ if ($Module == 'authorization' and $_POST["submit"]) {
         $_SESSION["USER_PASSWORD"] = $Row["password"];
         $_SESSION["USER_NICKNAME"] = $Row["nickname"];
         $_SESSION["USER_REGDATE"] = $Row["reg_date"];
+        $_SESSION["USER_ROOT_RULES"] = $Row["root_rules"];
         if ($_REQUEST['remember_me']) {
             setcookie('c_user_remember', $password, strtotime('+30 days'), '/');
         }
         MessageToUser(2, 'Вы успешно авторизировались!', '/profile');
-    } 
-        
-    
+    }
+
+
 }
 ?>

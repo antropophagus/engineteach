@@ -1,4 +1,4 @@
-<?php root(1); ?>
+<?php root(2); ?>
 <html>
     <?php head(); ?>
     <body>
