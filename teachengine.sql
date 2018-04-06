@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Апр 01 2018 г., 17:18
+-- Время создания: Апр 07 2018 г., 03:47
 -- Версия сервера: 5.5.25
 -- Версия PHP: 5.3.13
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `states` (
   `category` varchar(255) NOT NULL,
   `create_date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Дамп данных таблицы `states`
@@ -48,7 +48,8 @@ INSERT INTO `states` (`id`, `title`, `tags`, `primary_text`, `text`, `category`,
 (4, 'wegwegweg', 'wegwegwegweg', 'wegewgwegweg', 'wegwegwegwegwegwegwegwegg', 'IT', '2018-04-03 00:00:00'),
 (5, 'ergrehreherh', 'erherhregergerh', 'erhergregrehe', 'wegieuWGHEHEWUIGHUIWGHEGHEUWIGHUWEGHWUGHEUWGWEGHWUHGWUGH', 'Computer', '0000-00-00 00:00:00'),
 (7, 'ergrehreherh', 'erherhregergerh', 'erhergregrehe', 'wegieuWGHEHEWUIGHUIWGHEGHEUWIGHUWEGHWUGHEUWGWEGHWUHGWUGH', 'Computer', '0000-00-00 00:00:00'),
-(9, 'Привет', 'проверка', 'бла бла бла', 'Статья об IT', 'IT', '2018-04-01 13:45:47');
+(9, 'Привет', 'проверка', 'бла бла бла', 'Статья об IT', 'IT', '2018-04-01 13:45:47'),
+(10, 'Ура!', 'Ура', 'Сайт уже работает!', 'Ликуйте люди! Сайт уже находится в альфе, и им уже можно пользоваться!', 'News', '2018-04-01 17:16:15');
 
 -- --------------------------------------------------------
 
@@ -63,17 +64,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(255) NOT NULL,
   `nickname` varchar(255) NOT NULL,
   `reg_date` datetime NOT NULL,
+  `root_rules` int(2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
 -- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`id`, `login`, `email`, `password`, `nickname`, `reg_date`) VALUES
-(7, 'awdwad', 'fwefwef@fwwef.ru', '25d55ad283aa400af464c76d713c07ad', 'blblblbl', '2018-03-30 22:28:38'),
-(8, 'efwegwegweg', 'wegwegwwg@ewrgerg.ru', '25d55ad283aa400af464c76d713c07ad', 'ergerherg', '2018-03-30 22:32:34'),
-(9, 'gewgweg', 'wegweg@fwegewg.ru', '25d55ad283aa400af464c76d713c07ad', 'awdawf', '2018-03-31 17:00:46');
+INSERT INTO `users` (`id`, `login`, `email`, `password`, `nickname`, `reg_date`, `root_rules`) VALUES
+(11, 'Antropophagus', 'fomka@hook.ru', 'd4dd15a648a8fad75c6759f01c3fd042', 'Donald', '2018-04-07 00:33:14', 3);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
