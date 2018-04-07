@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Апр 07 2018 г., 03:47
+-- Время создания: Апр 07 2018 г., 23:24
 -- Версия сервера: 5.5.25
 -- Версия PHP: 5.3.13
 
@@ -66,14 +66,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   `reg_date` datetime NOT NULL,
   `root_rules` int(2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
 -- Дамп данных таблицы `users`
 --
 
 INSERT INTO `users` (`id`, `login`, `email`, `password`, `nickname`, `reg_date`, `root_rules`) VALUES
-(11, 'Antropophagus', 'fomka@hook.ru', 'd4dd15a648a8fad75c6759f01c3fd042', 'Donald', '2018-04-07 00:33:14', 3);
+(11, 'Antropophagus', 'fomka@hook.ru', 'd4dd15a648a8fad75c6759f01c3fd042', 'Donald', '2018-04-07 00:33:14', 3),
+(12, 'Lol', 'lol@hyper.ru', '25f9e794323b453885f5181f1b624d0b', 'Lalka', '2018-04-07 20:34:28', 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
