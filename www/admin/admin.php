@@ -1,7 +1,8 @@
 <?
 root(3);
-include 'pages/main.php';
-if ($Module == 'state_manager') include 'pages/state_manager.php';
+
+if ($Module == '') include 'pages/main.php';
+else if ($Module == 'state_manager') include 'pages/state_manager.php';
 else if ($Module == 'user_manager') include 'pages/user_manager.php';
 else if ($Module == 'manager') include 'form/manager.php';
 
