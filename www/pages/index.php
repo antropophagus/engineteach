@@ -14,7 +14,6 @@ $array = SortLogic($Module, $Param);
             <li><a href="/cat/computer">Компьютеры</a></li>
             <li><a href="/cat/it">IT</a></li>
             </ul>
-
             </div>
             <div class="sort">
             <h2>Сортировать: </h2>
