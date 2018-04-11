@@ -1,0 +1,83 @@
+.antroslider {
+    width: 1280px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.antroslider_window {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    text-align: center;
+}
+.slides {
+    position: relative;
+    overflow: hidden;
+}
+.antroslider_image_image {
+    position: relative;
+    float: left;
+    display: inline;
+}
+.antroslider_text {
+    position: absolute;
+    width: 98%;
+    margin: 0 auto;
+    text-align: center;
+}
+.button_next, .button_prev {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    top: calc(50% - 25px);
+    background-color: #d8d8d8;
+    opacity: 0.6;
+    z-index: 999;
+}
+.button_next:hover, .button_prev:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    transition: 0.3s;
+}
+.button_prev {
+    left: 25px;
+}
+.button_next {
+    right: 25px;
+}
+.fa-angle-right, .fa-angle-left {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.slide_text {
+    position: absolute;
+}
+.buttons_slides {
+    position: absolute;
+    width: 100%;
+    bottom: 20px;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+.button_slide {
+    position: relative;
+    display: inline-block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin: 3px;
+    z-index: 999;
+}
+.button_slide[value=1] {
+    background-color: black;
+}
+.button_slide:hover {
+    cursor: pointer;
+}

@@ -1,4 +1,4 @@
-<?php 
+<?php
 include_once 'settings.php';
 include_once 'functions.php';
 session_start();
@@ -40,7 +40,8 @@ $Param[$URL_Parts[$i]] = $URL_Parts[++$i];
 
 //Подключение файлов в зависимости от URL
 
-if ($Page == 'engine' or $Page == 'cat' or $Page == 'sort') include '../pages/index.php';
+if ($Page == 'engine') include '../pages/index.php';
+else if ($Page == 'cat') include '../pages/states.php';
 else if ($Page == 'register') include '../pages/register.php';
 else if ($Page == 'publisher') include '../forms/publisher.php';
 else if ($Page == 'createstate') include '../pages/createstate.php';

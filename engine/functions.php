@@ -11,7 +11,7 @@ function EncrPass ($p1) {
 
     //Вывод элементов сайта (head ,header, footer)
 function headerr() {
-    if (!$_SESSION["USER_LOG_IN"]) {$variable = '<a href="authorization">Авторизация</a> | <a href="register">Регистрация</a>';}
+    if (!$_SESSION["USER_LOG_IN"]) {$variable = '<a href="/authorization">Авторизация</a> | <a href="/register">Регистрация</a>';}
     else {$variable ='<a href="profile">'.$_SESSION["USER_NICKNAME"].'</a>';}
     echo '
         <header id="header">
@@ -21,8 +21,7 @@ function headerr() {
         <nav id="nav">
             <ul id="main_menu">
         <li><a href="/">Главная</a></li>
-        <li><a href="#">Железо</a></li>
-        <li value="states"><a href="#">Статьи</a></li>
+        <li value="states"><a href="/cat/all">Статьи</a></li>
         <li><a href="about">О сайте</a></li>
     </ul>
         </nav>
@@ -33,10 +32,12 @@ function head() {
     <head>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
         <link rel="stylesheet" href="http://engineteach.com/style/style.css">
+        <link rel="stylesheet" href="http://engineteach.com/style/antroslider.css">
         <meta charset="utf-8">
         <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
         <script type="text/javascript" src="http://engineteach.com/js/js.js"></script>
+        <script type="text/javascript" src="http://engineteach.com/js/antroslider.js"></script>
         <title>Главная</title>
     </head>
     ';
@@ -73,30 +74,37 @@ function MessageToUserShow () {
     $_SESSION["MESSAGE_TO_USER"] = array ();
 }
 function ShowStates($p1, $p2, $p3) {
+
     if ($p2 == '') $Row = mysqli_query ($p1, "SELECT * FROM `states` ORDER BY $p3");
-    else $Row = mysqli_query ($p1, "SELECT * FROM `states` WHERE `category` = '$p2' ORDER BY $p3");
-    while ($NewRow = mysqli_fetch_assoc($Row)) {
-        echo '
-        <div class="content_state"><a href="/state/'.$NewRow["id"].'"><h1>'.$NewRow["title"].'</h1></a><p>'.$NewRow["primary_text"].'</p><span>'.$NewRow["create_date"].'</span></div>
-        ';
+    else {
+      $cat_ar = mysqli_fetch_assoc(mysqli_query($p1, "SELECT * FROM `category` WHERE `title` = '$p2'"));
+      $title = $cat_ar["title"];
+      $id = $cat_ar["id"];
+      $Row = mysqli_query($p1, "SELECT * FROM `states` WHERE `category_id` = '$id' ORDER BY $p3");
+    }
+    if (!mysqli_fetch_assoc($Row)) echo '<h1>В данной категории пока что нет статей!</h1>';
+    else {
+          while ($NewRow = mysqli_fetch_assoc($Row)) {
+          echo '<div class="content_state"><a href="/state/'.$NewRow["id"].'"><h1>'.$NewRow["title"].'</h1></a><p>'.$NewRow["primary_text"].'</p><span>'.$NewRow["create_date"].'</span></div>';
+      }
     }
 }
 function ShowState($p1,$p2) {
-    $id = $p2;
-    $Row = mysqli_fetch_assoc(mysqli_query($p1, "SELECT * FROM `states` WHERE `id` = '$id'"));
+    $Row = mysqli_fetch_assoc(mysqli_query($p1, "SELECT * FROM `states` WHERE `id` = '$p2'"));
     if (!$Row) exit('<h1>Статья не найдена!</h1>');
     echo '
     <div class="content_wrapper"><h1>'.$Row["title"].'</h1><p>'.$Row["text"].'</p><span>'.$Row["create_date"].'</span><p>Tags: '.$Row["tags"].'</p></div>
     ';
 }
 
-function SortLogic($p1, $p2) {
-$array_cat = array(
-0 => "news",
-1 => "computer",
-2 => "it",
-3 => "all",
-);
+function SortLogic($p1, $p2, $p3) {
+$Row = mysqli_query($p3, "SELECT * FROM `category`");
+$array_cat = array();
+
+while ($NewRow = mysqli_fetch_array($Row)) {
+    $old = $NewRow['title'];
+    $array_cat[] = $old;
+}
 if ($p1 == 'engine' or $p1 == 'all') {$cat = ''; $p1 = 'all';}
 else if (in_array($p1, $array_cat)) $cat = $p1;
 else MessageToUser(3, 'Ошибка категории!','/');
@@ -112,5 +120,11 @@ else {
 }
     $array = array($cat, $sort, $p1);
     return $array;
+}
+function Show_Cat_Nav ($p1) {
+   $Row = mysqli_query($p1, "SELECT * FROM `category`");
+   while ($NewRow = mysqli_fetch_assoc($Row)) {
+     echo '<li><a href="/cat/'.$NewRow['title'].'">'.$NewRow['title'].'</a></li>';
+   }
 }
 ?>

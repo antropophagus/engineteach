@@ -1,33 +1,25 @@
-<?php
-$array = SortLogic($Module, $Param);
-?>
 <html>
     <?php head(); ?>
     <body>
         <?php headerr(); ?>
         <?php MessageToUserShow(); ?>
         <div id="wrapper">
-            <div class="cat"><h2>Категории: </h2>
-            <ul class="cat_list">
-            <li><a href="/cat/all">Все</a></li>
-            <li><a href="/cat/news">Новости</a></li>
-            <li><a href="/cat/computer">Компьютеры</a></li>
-            <li><a href="/cat/it">IT</a></li>
-            </ul>
+        </div>
+          <div class="antroslider">
+            <div class="antroslider_window">
+                 <div class="button_next"><i class="fas fa-angle-right fa-3x"></i></div>
+                 <div class="button_prev"><i class="fas fa-angle-left fa-3x"></i></div>
+                 <ul class="buttons_slides">
+                 </ul>
+               <div class="slides">
+                    <a href="#1" title="first" class="antroslider_image"><img src="https://i04.fotocdn.net/s23/90/public_pin_l/198/2579285337.jpg" alt="" class="antroslider_image_image"></a>
+                    <a href="#2" title="second" class="antroslider_image"><img src="https://static.zerochan.net/Hatsune.Miku.full.2035781.jpg" alt="" class="antroslider_image_image"></a>
+                    <a href="#3" title="third" class="antroslider_image"><img src="https://static.zerochan.net/Oginohama.Akane.full.1820022.jpg" alt="" class="antroslider_image_image"></a>
+                    <a href="#4" title="four" class="antroslider_image"><img src="http://ii.yakuji.moe/s/src/1497530643255.png" alt="" class="antroslider_image_image"></a>
+                    <a href="#5" title="five" class="antroslider_image"><img src="https://s1.1zoom.ru/big0/10/187720-dikemoon.jpg" alt="" class="antroslider_image_image"></a>
+                    <a href="#6" title="six" class="antroslider_image"><img src="http://i.want.tf/to/that/DTP3xyrg.jpg" alt="" class="antroslider_image_image"></a>
+               </div>
             </div>
-            <div class="sort">
-            <h2>Сортировать: </h2>
-            <ul class="cat_list">
-            <li><a href="/cat/<? echo $array[2]; ?>/sort/date_desc">Сначало новые</a></li>
-            <li><a href="/cat/<? echo $array[2]; ?>/sort/date_asc">Сначало старые</a></li>
-            <li><a href="/cat/<? echo $array[2]; ?>/sort/title_asc">А-Я</a></li>
-            <li><a href="/cat/<? echo $array[2]; ?>/sort/title_desc">Я-А</a></li>
-            </ul>
-            </div>
-            <?php
-                echo $_SESSION["USER_ROOT_RULES"];
-                ShowStates($CONNECT, $array[0], $array[1]);
-             ?>
         </div>
 
         <?php footer(); ?>
