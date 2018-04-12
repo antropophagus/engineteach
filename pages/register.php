@@ -10,7 +10,7 @@
             <p><label for="email">E-mail: </label><input name="email" type="email" required></p>
             <p><label for="password">Пароль: </label><input name="password" type="password" required></p>
             <p><label for="sec_password">Повторите пароль: </label><input name="sec_password" type="password" required></p>
-            <p><label for="nickname">Имя: </label><input name="nickname" type="text" required></p>
+            <p><label for="nickname">Nickname: </label><input name="nickname" type="text" required></p>
             <p><input name="submit" type="submit"></p>
         </form>
         </div>

@@ -22,9 +22,9 @@ $Row = mysqli_fetch_assoc(mysqli_query($CONNECT, "SELECT `email` FROM `users` WH
 if ($Row['email']) MessageToUser(3 ,'Данный Email уже используется!', '');
 $Row = mysqli_fetch_assoc(mysqli_query($CONNECT, "SELECT `nickname` FROM `users` WHERE `nickname` = '$nickname'"));
 if ($Row['nickname']) MessageToUser(3,'Данный никнэйм уже используется!','');
-if ($password != $sec_password) ErrorToUser('Введенные пароли не совпадают!');
+if ($password != $sec_password) MessageToUser(3, 'Введенные пароли не совпадают!', '');
     //Запись в БД
-mysqli_query ($CONNECT, "INSERT INTO `users` VALUES ('','$login','$email','$password','$nickname', NOW(), '1')");
+mysqli_query ($CONNECT, "INSERT INTO `users` VALUES ('','$login','$email','$password','$nickname', 'Date(Y-m-d)', '1')");
 MessageToUser(2, 'Вы успешно зарегистрировались!', '/authorization');
 }
 
@@ -53,4 +53,5 @@ if ($Module == 'authorization' and $_POST["submit"]) {
 
 
 }
+else echo '<h1>404 Page not found...</h1>';
 ?>

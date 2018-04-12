@@ -37,7 +37,9 @@ function head() {
         <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
         <script type="text/javascript" src="http://engineteach.com/js/js.js"></script>
-        <script type="text/javascript" src="http://engineteach.com/js/antroslider.js"></script>
+        <script type="text/javascript" src="http://engineteach.com/js/antroslider
+
+        .js"></script>
         <title>Главная</title>
     </head>
     ';
@@ -74,7 +76,6 @@ function MessageToUserShow () {
     $_SESSION["MESSAGE_TO_USER"] = array ();
 }
 function ShowStates($p1, $p2, $p3) {
-
     if ($p2 == '') $Row = mysqli_query ($p1, "SELECT * FROM `states` ORDER BY $p3");
     else {
       $cat_ar = mysqli_fetch_assoc(mysqli_query($p1, "SELECT * FROM `category` WHERE `title` = '$p2'"));
@@ -84,9 +85,9 @@ function ShowStates($p1, $p2, $p3) {
     }
     if (!mysqli_fetch_assoc($Row)) echo '<h1>В данной категории пока что нет статей!</h1>';
     else {
-          while ($NewRow = mysqli_fetch_assoc($Row)) {
-          echo '<div class="content_state"><a href="/state/'.$NewRow["id"].'"><h1>'.$NewRow["title"].'</h1></a><p>'.$NewRow["primary_text"].'</p><span>'.$NewRow["create_date"].'</span></div>';
-      }
+          foreach ($Row as $item) {
+            echo '<div class="content_state"><a href="/state/'.$item["id"].'"><h1>'.$item["title"].'</h1></a><p>'.$item["primary_text"].'</p><span>'.$item["create_date"].'</span></div>';
+          }
     }
 }
 function ShowState($p1,$p2) {
@@ -100,10 +101,8 @@ function ShowState($p1,$p2) {
 function SortLogic($p1, $p2, $p3) {
 $Row = mysqli_query($p3, "SELECT * FROM `category`");
 $array_cat = array();
-
-while ($NewRow = mysqli_fetch_array($Row)) {
-    $old = $NewRow['title'];
-    $array_cat[] = $old;
+foreach ($Row as $item) {
+  $array_cat[] = $item['title'];
 }
 if ($p1 == 'engine' or $p1 == 'all') {$cat = ''; $p1 = 'all';}
 else if (in_array($p1, $array_cat)) $cat = $p1;
@@ -123,8 +122,8 @@ else {
 }
 function Show_Cat_Nav ($p1) {
    $Row = mysqli_query($p1, "SELECT * FROM `category`");
-   while ($NewRow = mysqli_fetch_assoc($Row)) {
-     echo '<li><a href="/cat/'.$NewRow['title'].'">'.$NewRow['title'].'</a></li>';
+   foreach ($Row as $item) {
+     echo '<li><a href="/cat/'.$item['title'].'">'.$item['title'].'</a></li>';
    }
 }
 ?>
