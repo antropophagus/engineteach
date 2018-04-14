@@ -14,7 +14,9 @@ p {
 body {
   background-color: #171717;
 }
-
+path {
+  color: white;
+}
 .close_message path {
   color: black;
 }
@@ -57,6 +59,9 @@ ul {
 }
 .results {
   margin-top: 50px;
+  width: 50%;
+  padding: 2%;
+  float: left;
 }
 form {
   float: left;
@@ -80,6 +85,8 @@ textarea {
   float: left;
   text-align: left;
   margin-bottom: 15px;
+  border-radius: 5px;
+  padding: 5px;
 }
 form label {
   margin-right: 10px;
