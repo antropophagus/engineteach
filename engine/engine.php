@@ -44,7 +44,6 @@ if ($Page == 'engine') include '../pages/index.php';
 else if ($Page == 'cat') include '../pages/states.php';
 else if ($Page == 'register') include '../pages/register.php';
 else if ($Page == 'publisher') include '../forms/publisher.php';
-else if ($Page == 'createstate') include '../pages/createstate.php';
 else if ($Page == 'account') include '../forms/account.php';
 else if ($Page == 'authorization') include '../pages/authorization.php';
 else if ($Page == 'profile') include '../pages/profile.php';

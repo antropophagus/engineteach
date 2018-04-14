@@ -6,10 +6,10 @@
         <?php MessageToUserShow(); ?>
         <div id="wrapper">
             <form method="POST" action="account/authorization">
-            <p><label for="login">Логин: </label><input name="login" type="text" required></p>
-            <p><label for="password">Пароль: </label><input name="password" type="password" required></p>
-            <p><label for="remember_me">Запомнить меня: </label><input name="remember_me" type="checkbox"></p>
-            <p><input name="submit" type="submit"></p>
+            <p><input name="login" type="text" required placeholder="Login"></p>
+            <p><input name="password" type="password" required placeholder="Password"></p>
+            <p><label for="remember_me">Remember me: </label><input name="remember_me" type="checkbox"></p>
+            <p><input class="button button-pill button-primary" name="submit" type="submit" value="Login"></p>
         </form>
         </div>
         <?php footer(); ?>

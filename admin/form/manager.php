@@ -17,12 +17,22 @@
     case search:
       search_user($CONNECT, $_POST["email"], $_POST["nickname"]);
       break;
+    case createstate:
+      createstate($CONNECT, $_POST["title"], $_POST["primary_text"], $_POST["text"], $_POST["category"]);
+    break;
 
     default:
-      # code...
+      MessageToUser(3, 'Ошибка запроса!', '/admin');
       break;
   }
-
+  function createstate($p1, $title, $primary_text, $text, $category) {
+    $title = FormChars($title);
+    $primary_text = FormChars($primary_text);
+    $text = FormChars($text);
+    $Row = mysqli_query ($p1, "INSERT INTO `states` VALUES ('','$title','$primary_text','$text','$category', NOW())");
+    if (!$Row) echo 'fail';
+    else echo 'success';
+  }
 
 
 ?>

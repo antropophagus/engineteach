@@ -5,12 +5,12 @@
         <?php headerr(); ?>
         <?php MessageToUserShow(); ?>
         <div id="wrapper">
-            <h3>Ваши данные:</h3>
-            Логин: <?php echo $_SESSION["USER_LOGIN"] ?> <br>
-            Email: <?php echo $_SESSION["USER_EMAIL"] ?> <br>
-            Nickname: <?php echo $_SESSION["USER_NICKNAME"] ?> <br>
-            Дата регистрации: <?php echo $_SESSION["USER_REGDATE"] ?> <br>
-            <a href="account/logout">Выйти</a>
+            <h2>Ваши данные:</h2>
+            <p>Логин: <?php echo $_SESSION["USER_LOGIN"] ?></p>
+            <p>Email: <?php echo $_SESSION["USER_EMAIL"] ?></p>
+            <p>Nickname: <?php echo $_SESSION["USER_NICKNAME"] ?></p>
+            <p>Дата регистрации: <?php echo $_SESSION["USER_REGDATE"] ?></p>
+            <a class="button button-3d button-caution" href="account/logout">Выйти</a>
         </div>
         <?php footer(); ?>
     </body>

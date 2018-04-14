@@ -8,7 +8,9 @@
 a {
   text-decoration: none;
 }
-
+p {
+  clear: both;
+}
 body {
   background-color: #171717;
 }
@@ -25,7 +27,11 @@ ul {
   list-style: none;
   color: white;
 }
-
+.forms {
+  width: 50%;
+  padding: 2%;
+  float: left;
+}
 #header {
   width: 98%;
   padding: 1%;
@@ -49,7 +55,35 @@ ul {
   padding: 2%;
   float: left;
 }
-
+.results {
+  margin-top: 50px;
+}
+form {
+  float: left;
+  text-align: left;
+}
+button {
+  float: left;
+}
+input[type="text"], input[type="email"], input[type="password"], select  {
+  float: left;
+  clear: both;
+  height: 25px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  border: none;
+  padding: 5px;
+  text-align: left;
+}
+textarea {
+  clear: both;
+  float: left;
+  text-align: left;
+  margin-bottom: 15px;
+}
+form label {
+  margin-right: 10px;
+}
 #nav {
   width: 96%;
   padding: 15px 2%;

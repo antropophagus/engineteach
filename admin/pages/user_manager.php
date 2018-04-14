@@ -13,13 +13,14 @@
     </div>
 
     <!-- <div id="wrapper2" style="padding: 2%; width:auto; float: left; height: calc(79% - 71px); background-color:#171717;"> -->
-      <h2 style="margin-bottom: 15px;">Поиск пользователя: </h2>
-      <input placeholder="Nickname" type="text" name="nickname"> или <input placeholder="Email" type="text" name="email"> <br>
-      <input type="submit" name="search" value="Поиск">
+
     <!-- </div> -->
     <br>
     <div id="wrapper" style="width: 40%;">
-
+      <h2 style="margin-bottom: 15px;">Поиск пользователя: </h2>
+      <input placeholder="Nickname" type="text" name="nickname"> или <input placeholder="Email" type="text" name="email"> <br>
+      <input type="submit" name="search" value="Поиск">
+    <div class="results"></div>
     </div>
   </body>
 </html>
@@ -34,12 +35,12 @@ function ShowUser() {
     success: function(data) {
       if(data == 'fail') {
         var error = '<h2 style="color: red;">Пользователь не найден!</h2>';
-        $("#wrapper").html(error);
+        $(".results").html(error);
       }
       else {
         myarray = data.split ('&');
         var user = '<p>ID: ' + myarray[0] + '</p><p>Email: ' + myarray[1] + '</p><p>Nickname: ' + myarray[2] + '</p><p>Reg.Date: ' + myarray[3] + '</p><p>Root: ' + myarray[4] + '<select id="root" name="root"><option disabled selected>root</option><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></p>';
-        $("#wrapper").html(user);
+        $(".results").html(user);
       }
       }
   });
