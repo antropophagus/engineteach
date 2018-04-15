@@ -14,6 +14,7 @@
 .slides {
     position: relative;
     overflow: hidden;
+    background-color: black;
 }
 .antroslider_image_image {
     position: relative;
@@ -22,14 +23,14 @@
     text-align: center;
     width: 100%;
 }
-.antroslider_image_image h2, p {
+.antroslider_image_image h1, .antroslider_image_image p {
   position: absolute;
   opacity: 0;
   text-align: center;
   color: white;
   width: 1280px;
 }
-.antroslider_image_image h2 {
+.antroslider_image_image h1 {
   bottom: 51%;
   text-align: center;
 }
@@ -43,13 +44,13 @@
     width: 50px;
     border-radius: 50%;
     top: calc(50% - 25px);
-    background-color: #d8d8d8;
-    opacity: 0.6;
+    opacity: 0.85;
     z-index: 999;
+    text-align: center;
 }
 .button_next:hover, .button_prev:hover {
     cursor: pointer;
-    opacity: 0.8;
+    opacity: 1;
     transition: 0.3s;
 }
 .button_prev {
@@ -57,11 +58,6 @@
 }
 .button_next {
     right: 25px;
-}
-.fa-angle-right, .fa-angle-left {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
 }
 
 .slide_text {
@@ -81,13 +77,13 @@
     list-style: none;
     width: 20px;
     height: 20px;
-    background-color: #fff;
+    background-color: #000000;
     border-radius: 50%;
     margin: 3px;
     z-index: 999;
 }
 .button_slide[value=1] {
-    background-color: black;
+    background-color: white;
 }
 .button_slide:hover {
     cursor: pointer;
