@@ -44,7 +44,7 @@
     width: 50px;
     border-radius: 50%;
     top: calc(50% - 25px);
-    opacity: 0.85;
+    opacity: 0.85];
     z-index: 999;
     text-align: center;
 }

@@ -102,6 +102,10 @@ function ShowStates($p1, $p2, $p3) {
           }
     }
 }
+function ShowStatesForSlider($p1) {
+    $Row = mysqli_query($p1, "SELECT * FROM `states` ORDER BY `create_date` DESC limit 5");
+    return $Row;
+}
 function ShowState($p1,$p2) {
     $Row = mysqli_fetch_assoc(mysqli_query($p1, "SELECT * FROM `states` WHERE `id` = '$p2'"));
     if (!$Row) exit('<h1>Статья не найдена!</h1>');

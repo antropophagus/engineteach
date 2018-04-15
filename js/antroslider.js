@@ -1,6 +1,7 @@
 var i = 1; // Счетчик слайдов
 var count;  // Всего слайдов
 var j; // Переменная интервалла
+var jbool = false;
 var a = 0; // Переменная, расчитывающая перемещение слайдов
 var width; // Ширина слайдера
 var butt_id; // index нажатой кнопки
@@ -16,18 +17,21 @@ $(document).ready(function(){
     j = setInterval(function(){
         slideNext();
       },8000);
-    $('.antroslider').hover(function(){
+    $('.antroslider_window').hover(function(){
         clearInterval(j);
+        jbool = true;
     },function(){
+        if (jbool != false) {
         j = setInterval(function(){
         slideNext();
       },8000);
+    }
     });
     $('.slides').hover(function(){
-        $('.antroslider_image_image p, h1').animate({"opacity":"1"},{duration: 500, queue: false});
+        $('.antroslider_image_image p, .antroslider_image_image h1').animate({"opacity":"1"},{duration: 500, queue: false});
         $('.antroslider_image_image img').animate({"opacity":"0.15"},{duration: 500, queue: false});
     },function(){
-        $('.antroslider_image_image p, h1').animate({"opacity":"0"},{duration: 500, queue: false});
+        $('.antroslider_image_image p, .antroslider_image_image h1').animate({"opacity":"0"},{duration: 500, queue: false});
         $('.antroslider_image_image img').animate({"opacity":"1"},{duration: 500, queue: false});
     });
     $(".button_next").click(function(){
