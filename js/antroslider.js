@@ -15,14 +15,21 @@ $(document).ready(function(){
     $('.button_slide[value=1]').css({"backgroundColor": "black"});
     j = setInterval(function(){
         slideNext();
-        },8000);
-    $('.antroslider_window').hover(function(){
+      },8000);
+    $('.antroslider').hover(function(){
         clearInterval(j);
     },function(){
         j = setInterval(function(){
         slideNext();
-        },8000);
-    })
+      },8000);
+    });
+    $('.slides').hover(function(){
+        $('.antroslider_image_image p, h2').animate({"opacity":"1"},500);
+        $('.antroslider_image_image img').animate({"opacity":"0.35"},500);
+    },function(){
+        $('.antroslider_image_image p, h2').animate({"opacity":"0"},500);
+        $('.antroslider_image_image img').animate({"opacity":"1"},500);
+    });
     $(".button_next").click(function(){
         slideNext();
     });

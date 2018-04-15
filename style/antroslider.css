@@ -19,12 +19,23 @@
     position: relative;
     float: left;
     display: inline;
-}
-.antroslider_text {
-    position: absolute;
-    width: 98%;
-    margin: 0 auto;
     text-align: center;
+    width: 100%;
+}
+.antroslider_image_image h2, p {
+  position: absolute;
+  opacity: 0;
+  text-align: center;
+  color: white;
+  width: 1280px;
+}
+.antroslider_image_image h2 {
+  bottom: 51%;
+  text-align: center;
+}
+.antroslider_image_image p {
+  bottom: 45%;
+  text-align: center;
 }
 .button_next, .button_prev {
     position: absolute;
