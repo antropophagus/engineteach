@@ -6,9 +6,8 @@
        <ul class="buttons_slides">
        </ul>
      <div class="slides">
-          <!-- <a href="#1" title="first" class="antroslider_image"><div class="antroslider_image_image"><h1>lorem1</h1><p>jewogwjegowiejgeoiwgjwoeigj</p><img src="https://i04.fotocdn.net/s23/90/public_pin_l/198/2579285337.jpg" alt="" ></div></a> -->
           <? foreach ($Row as $slide) {
-            echo '<a href="/state/'.$slide["id"].'" title="'.$slide["title"].'" class="antroslider_image"><div class="antroslider_image_image"><h1>'.$slide["title"].'</h1><p>'.$slide["primary_text"].'</p><img src="https://i04.fotocdn.net/s23/90/public_pin_l/198/2579285337.jpg" alt="" ></div></a>';
+            echo '<a href="/state/'.$slide["id"].'" title="'.$slide["title"].'" class="antroslider_image"><div class="antroslider_image_image"><h1>'.$slide["title"].'</h1><p>'.$slide["primary_text"].'</p><img src="http://engineteach.com/resources/images/'.$slide["image"].'" alt="" ></div></a>';
           } ?>
 
 

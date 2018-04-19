@@ -7,7 +7,7 @@
       search_user($CONNECT, $_POST["email"], $_POST["nickname"]);
       break;
     case createstate:
-      createstate($CONNECT, $_POST["title"], $_POST["primary_text"], $_POST["text"], $_POST["category"]);
+      createstate($CONNECT, $_POST["title"], $_POST["primary_text"], $_POST["text"], $_POST["category"], $_POST["image"]);
     break;
     case searchstate:
       search_state($CONNECT, $_POST["title"]);

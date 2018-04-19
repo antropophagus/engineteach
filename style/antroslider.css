@@ -30,6 +30,10 @@
   color: white;
   width: 1280px;
 }
+.antroslider_image_image img {
+  width: 1280px;
+  height: 768px;
+}
 .antroslider_image_image h1 {
   bottom: 51%;
   text-align: center;
