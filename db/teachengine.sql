@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 12 2018 г., 00:26
+-- Время создания: Апр 19 2018 г., 21:47
 -- Версия сервера: 5.6.37
 -- Версия PHP: 5.5.38
 
@@ -54,22 +54,18 @@ CREATE TABLE `states` (
   `primary_text` varchar(255) NOT NULL,
   `text` text NOT NULL,
   `category_id` int(11) NOT NULL,
-  `create_date` date NOT NULL
+  `create_date` date NOT NULL,
+  `image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `states`
 --
 
-INSERT INTO `states` (`id`, `title`, `primary_text`, `text`, `category_id`, `create_date`) VALUES
-(1, 'dfbfb', 'dfbfbfdbdbdfb', 'dfbfdbdfnfdfddfbdfdnfdb', 1, '2018-03-31'),
-(2, 'regerg', 'ergrgreg', 'ergergergregergergergegrg', 1, '2018-04-01'),
-(3, 'fwefwefwef', 'wefwefwefewgegwefwf', 'fwefwegewgewfwefwegwefewg', 2, '2018-04-04'),
-(4, 'wegwegweg', 'wegewgwegweg', 'wegwegwegwegwegwegwegwegg', 2, '2018-04-03'),
-(5, 'ergrehreherh', 'erhergregrehe', 'wegieuWGHEHEWUIGHUIWGHEGHEUWIGHUWEGHWUGHEUWGWEGHWUHGWUGH', 2, '2018-04-03'),
-(7, 'ergrehreherh', 'erhergregrehe', 'wegieuWGHEHEWUIGHUIWGHEGHEUWIGHUWEGHWUGHEUWGWEGHWUHGWUGH', 1, '2018-04-04'),
-(9, 'Привет', 'бла бла бла', 'Статья об IT', 1, '2018-04-01'),
-(10, 'Ура!', 'Сайт уже работает!', 'Ликуйте люди! Сайт уже находится в альфе, и им уже можно пользоваться!', 2, '2018-04-01');
+INSERT INTO `states` (`id`, `title`, `primary_text`, `text`, `category_id`, `create_date`, `image`) VALUES
+(20, 'wefewfwefw', 'fewfwef', 'wefwefe', 1, '2018-04-19', 'default_image.png'),
+(21, 'ацуауц', 'ацуауц', 'ацуауца', 3, '2018-04-19', 'default_image.png'),
+(22, 'ergerg', 'ergerge', 'rgergergr', 1, '2018-04-19', 'ab986b518855437c20966a97636f9e4b.jpg');
 
 -- --------------------------------------------------------
 
@@ -141,7 +137,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT для таблицы `states`
 --
 ALTER TABLE `states`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
