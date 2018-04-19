@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 19 2018 г., 21:47
+-- Время создания: Апр 19 2018 г., 21:55
 -- Версия сервера: 5.6.37
 -- Версия PHP: 5.5.38
 
@@ -40,7 +40,8 @@ CREATE TABLE `category` (
 INSERT INTO `category` (`id`, `title`) VALUES
 (1, 'it'),
 (2, 'news'),
-(3, 'games');
+(3, 'games'),
+(4, 'hacking');
 
 -- --------------------------------------------------------
 
@@ -57,15 +58,6 @@ CREATE TABLE `states` (
   `create_date` date NOT NULL,
   `image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Дамп данных таблицы `states`
---
-
-INSERT INTO `states` (`id`, `title`, `primary_text`, `text`, `category_id`, `create_date`, `image`) VALUES
-(20, 'wefewfwefw', 'fewfwef', 'wefwefe', 1, '2018-04-19', 'default_image.png'),
-(21, 'ацуауц', 'ацуауц', 'ацуауца', 3, '2018-04-19', 'default_image.png'),
-(22, 'ergerg', 'ergerge', 'rgergergr', 1, '2018-04-19', 'ab986b518855437c20966a97636f9e4b.jpg');
 
 -- --------------------------------------------------------
 
@@ -132,12 +124,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT для таблицы `states`
 --
 ALTER TABLE `states`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
