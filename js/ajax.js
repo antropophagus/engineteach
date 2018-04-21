@@ -86,3 +86,16 @@ else {
   })
 }
 };
+
+function createComment(user_id, state_id) {
+$.ajax ({
+    url: "/comments_manager",
+    type: "POST",
+    data: ({action: 'create_comment', id_state: state_id, id_user: user_id, text: $("textarea[name=comment_text]").val()}),
+    dataType: "html",
+    success: function(data) {
+      if (data == 'success') location.reload();
+      else alert(data);
+    }
+});
+};

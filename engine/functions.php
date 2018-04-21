@@ -12,7 +12,7 @@ function EncrPass ($p1) {
     //Вывод элементов сайта (head ,header, footer)
 function headerr() {
     if (!$_SESSION["USER_LOG_IN"]) {$variable = '<a href="/authorization">Авторизация</a> | <a href="/register">Регистрация</a>';}
-    else {$variable ='<a href="profile">'.$_SESSION["USER_NICKNAME"].'</a>';}
+    else {$variable ='<a href="/profile">'.$_SESSION["USER_NICKNAME"].'</a>';}
     echo '
         <header id="header">
             <div class="logo"><h1>Blog</h1></div>
@@ -229,11 +229,17 @@ $extension = image_type_to_extension($image[2]);
 $format = str_replace('jpeg', 'jpg', $extension);
 // Сохраним картинку
 if (!file_put_contents(__DIR__ . '/../resources/images/' . $name . $format, $raw)) {
-    echo ('При сохранении изображения на диск произошла ошибка.');
+    die('При сохранении изображения на диск произошла ошибка.');
 }
   }
   $Row = mysqli_query ($p1, "INSERT INTO `states` VALUES ('','$title','$primary_text','$text','$category', NOW(), '$name$format')");
   if (!$Row) echo 'fail';
+  else echo 'success';
+}
+
+function create_comment ($p1, $id_state, $id_user, $text){
+  $Row = mysqli_query($p1, "INSERT INTO `comments` VALUES ('', '$id_user', '$id_state', '$text', NOW())");
+  if (!$Row) echo $id_state, $id_user;
   else echo 'success';
 }
 
@@ -243,5 +249,26 @@ function search_state($p1, $title)
   $Row = mysqli_fetch_assoc(mysqli_query ($p1, "SELECT * FROM `states` WHERE `title` = '$title'"));
   if (!$Row) echo 'fail';
   else echo $Row = implode ('&', $Row);
+}
+
+function getUserName($p1, $id) {
+  $Row = mysqli_fetch_assoc(mysqli_query($p1, "SELECT `nickname` FROM `users` WHERE `id` = $id"));
+  return $Row["nickname"];
+}
+
+function showComments ($p1, $id_state) {
+  $Row = mysqli_query($p1, "SELECT * FROM `comments` WHERE `id_state` = $id_state ORDER BY `create_date` DESC");
+  if ($Row == '') echo '<h2>Комментариев пока нет! </h2>';
+  else {
+    foreach ($Row as $comment) {
+      echo '
+      <div class="comment_item">
+        <h2>'.$username = getUserName($p1, $comment["id_user"]).'</h2>
+        <p>'.$comment["text"].'</p>
+        <span>'.$comment["create_date"].'</span>
+      </div>
+      ';
+    }
+  }
 }
 ?>

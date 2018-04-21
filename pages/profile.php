@@ -5,7 +5,7 @@
         <?php headerr(); ?>
         <?php MessageToUserShow(); ?>
         <div id="wrapper">
-            <h2>Ваши данные:</h2>
+            <h2 style="margin-bottom: 30px;">Ваши данные:</h2>
             <p>Логин: <?php echo $_SESSION["USER_LOGIN"] ?></p>
             <p>Email: <?php echo $_SESSION["USER_EMAIL"] ?></p>
             <p>Nickname: <?php echo $_SESSION["USER_NICKNAME"] ?></p>

@@ -39,6 +39,7 @@ if ($Module == 'authorization' and $_POST["submit"]) {
     else {
         $Row = mysqli_fetch_assoc(mysqli_query($CONNECT, "SELECT * FROM `users` WHERE `login` = '$login'"));
         $_SESSION["USER_LOG_IN"] = 1;
+        $_SESSION["USER_ID"] = $Row["id"];
         $_SESSION["USER_LOGIN"] = $Row["login"];
         $_SESSION["USER_EMAIL"] = $Row["email"];
         $_SESSION["USER_PASSWORD"] = $Row["password"];

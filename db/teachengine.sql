@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 19 2018 г., 21:55
+-- Время создания: Апр 21 2018 г., 19:55
 -- Версия сервера: 5.6.37
 -- Версия PHP: 5.5.38
 
@@ -42,6 +42,20 @@ INSERT INTO `category` (`id`, `title`) VALUES
 (2, 'news'),
 (3, 'games'),
 (4, 'hacking');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_state` int(11) NOT NULL,
+  `text` text NOT NULL,
+  `create_date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -92,7 +106,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `login`, `email`, `password`, `nickname`, `reg_date`, `root_rules`) VALUES
 (11, 'Antropophagus', 'fomka@hook.ru', 'd4dd15a648a8fad75c6759f01c3fd042', 'Donald', '2018-04-07', 3),
-(12, 'Lol', 'lol@hyper.ru', '25f9e794323b453885f5181f1b624d0b', 'Lalka', '2018-04-07', 3);
+(12, 'Lol', 'lol@hyper.ru', '25f9e794323b453885f5181f1b624d0b', 'Lalka', '2018-04-07', 2);
 
 --
 -- Индексы сохранённых таблиц
@@ -102,6 +116,12 @@ INSERT INTO `users` (`id`, `login`, `email`, `password`, `nickname`, `reg_date`,
 -- Индексы таблицы `category`
 --
 ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `comments`
+--
+ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -126,10 +146,15 @@ ALTER TABLE `users`
 ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
+-- AUTO_INCREMENT для таблицы `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+--
 -- AUTO_INCREMENT для таблицы `states`
 --
 ALTER TABLE `states`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
